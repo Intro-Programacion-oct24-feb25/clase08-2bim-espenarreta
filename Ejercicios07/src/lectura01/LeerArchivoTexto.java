@@ -117,7 +117,7 @@ public class LeerArchivoTexto {
         catch (Exception e) {
             System.err.println("Error al leer del archivo.");
             System.exit(1); 
-        } // fin de catch
+        } // fin de catch   
     } // fin del m�todo leerRegistros
     // cierra el archivo y termina la aplicaci�n
 
