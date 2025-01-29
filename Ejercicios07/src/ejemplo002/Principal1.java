@@ -34,9 +34,21 @@ public class Principal1 {
             tipoNotas = funcion03(filaNotas);
             mensajeFinal = String.format("%s%s\n", mensajeFinal, 
                     presentarReporte(nombre, apellido, tipoNotas, 
-                    promedioEstudiante, numeroNotasArribaPromedio));
+                    promedioEstudiante, numeroNotasArribaPromedio)); // se 
+                                                                     // acumulan
+                                                                     // lo datos
+                                                                     // en una
+                                                                     // función
+                                                                     // para
+                                                                     // guardalo
+                                                                     // en un 
+                                                                     // archivo
+                                                                     // de texto
         }
-        CrearArchivoTexto.agregarRegistros(mensajeFinal);
+        CrearArchivoTexto.agregarRegistros(mensajeFinal); // se crea el archivo
+                                                          // de texto mandando
+                                                          // como parametro lo
+                                                          // acumulado
 
     }
     
