@@ -32,9 +32,14 @@ public class Principal1 {
             numeroNotasArribaPromedio = funcion02(filaNotas, 
                     promedio_paralelo);
             tipoNotas = funcion03(filaNotas);
+            String user = username(nombre, apellido);
+            int notabaja = notaMasBaja(notas[i]);
+            int notaalta = notaMasAlta(notas[i]);
+            
             mensajeFinal = String.format("%s%s\n", mensajeFinal, 
-                    presentarReporte(nombre, apellido, tipoNotas, 
-                    promedioEstudiante, numeroNotasArribaPromedio)); // se 
+                    presentarReporte(nombre, apellido, user, tipoNotas, 
+                    promedioEstudiante, numeroNotasArribaPromedio, notabaja,
+                    notaalta)); // se 
                                                                      // acumulan
                                                                      // lo datos
                                                                      // en una
@@ -52,15 +57,19 @@ public class Principal1 {
 
     }
     
-    public static String presentarReporte(String nom, String ap, String notas, 
-            double prom, int numeroNotas){
+    public static String presentarReporte(String nom, String ap, String user,
+            String notas, double prom, int numeroNotas, int notabaja,
+            int notalata){
         String reporte = String.format("Nombres: %s\n"
                 + "Apellidos: %s\n"
+                + "Username: %s\n"
                 + "Con notas: \n"
                 + "%s\n"
                 + "Promedio - %2f\n"
-                + "Número de notas arriba del promedio: %d\n\n",
-                nom, ap, notas, prom, numeroNotas);
+                + "Número de notas arriba del promedio: %d\n\n"
+                + "Nota mas baja: %d\n"
+                + "Nota mas alta: %d\n",
+                nom, ap, user, notas, prom, numeroNotas, notabaja, notalata);
         
         return reporte;
     }
@@ -127,6 +136,36 @@ public class Principal1 {
         }
         
         return cadena;
+    }
+    
+    public static String username(String nom, String ap){
+        String user;
+        nom = nom.toLowerCase();
+        ap = ap.toLowerCase();
+        
+        user = String.format("%s.%s@utpl.edu.ec", nom.substring(0, 1), ap);
+        
+        return user;
+    }
+    
+    public static int notaMasBaja(int [] notas){
+        int nota = notas[0];
+        for(int i = 0; i < notas.length; i++){
+            if(notas[i] < nota){
+                nota = notas[i];
+            }
+        }
+        return nota;
+    }
+    
+    public static int notaMasAlta(int [] notas){
+        int nota = notas[0];
+        for(int i = 0; i < notas.length; i++){
+            if(notas[i] > nota){
+                nota = notas[i];
+            }
+        }
+        return nota;
     }
     
     
